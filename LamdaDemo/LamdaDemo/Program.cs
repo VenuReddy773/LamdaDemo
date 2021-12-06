@@ -9,7 +9,8 @@ namespace LamdaDemo
         static void Main(string[] args)
         {
             List<Person> listPersonsInCity = new List<Person>();
-            AddRecords(listPersonsInCity);           
+            AddRecords(listPersonsInCity);
+            Retrieve_TopTwo_OfAgeAbove60(listPersonsInCity);
         }
         private static void AddRecords(List<Person> listPersonsInCity)
         {
@@ -17,6 +18,13 @@ namespace LamdaDemo
             listPersonsInCity.Add(new Person("222222", "Gopal", "hyd2", 65));
             listPersonsInCity.Add(new Person("333333", "Reddy", "hyd3", 35));
             listPersonsInCity.Add(new Person("444444", "Attla", "hyd4", 17));            
+        }
+        private static void Retrieve_TopTwo_OfAgeAbove60(List<Person> listPersonsInCity)
+        {
+            foreach (Person person in listPersonsInCity.FindAll(e => (e.Age < 60)).Take(2).ToList())
+            {
+                Console.WriteLine("Name: {0} Age: {1}", person.Name, person.Age);
+            }
         }
     }
 }
