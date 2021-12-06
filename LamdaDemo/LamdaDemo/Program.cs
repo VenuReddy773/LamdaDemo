@@ -12,6 +12,7 @@ namespace LamdaDemo
             AddRecords(listPersonsInCity);
             Retrieve_TopTwo_OfAgeAbove60(listPersonsInCity);
             Retrieve_Teenagers(listPersonsInCity);
+            Retrieve_AverageAge(listPersonsInCity);
         }
         private static void AddRecords(List<Person> listPersonsInCity)
         {
@@ -33,6 +34,11 @@ namespace LamdaDemo
             {
                 Console.WriteLine("Name: {0} Age: {1}", person.Name, person.Age);
             }
+        }
+        private static void Retrieve_AverageAge(List<Person> listPersonsInCity)
+        {
+            var avgAge = listPersonsInCity.Average(e => e.Age);  
+            Console.WriteLine("Average Age is : {0}",avgAge);            
         }
     }
 }
